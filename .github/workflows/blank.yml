@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run deploy script on remote server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: shop-with-me.ru
+          username: lasertower
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd shop-with-me && bash deploy.sh
