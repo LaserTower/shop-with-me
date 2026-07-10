@@ -1,3 +1,3 @@
 git fetch
 git reset --hard origin/main
-echo 1
+docker compose up build_front
