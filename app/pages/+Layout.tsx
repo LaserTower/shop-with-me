@@ -11,20 +11,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // Index page: no sidebar menu, content only
   if (urlPathname === "/") {
     return (
-      <div style={{ maxWidth: 900, margin: "auto" }}>
-        <Content>{children}</Content>
+      <div className="min-h-screen bg-gray-950 text-white">
+        {children}
       </div>
     );
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        maxWidth: 900,
-        margin: "auto",
-      }}
-    >
+    <div className="min-h-screen flex bg-gray-950 text-white max-w-screen-xl mx-auto">
       <Sidebar>
         <Logo />
         <Link href="/">Welcome</Link>
@@ -41,14 +35,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
   return (
     <div
       id="sidebar"
-      style={{
-        padding: 20,
-        flexShrink: 0,
-        display: "flex",
-        flexDirection: "column",
-        lineHeight: "1.8em",
-        borderRight: "2px solid #eee",
-      }}
+      className="border-r border-gray-800 p-5 flex flex-shrink-0 flex-col leading-[1.8em]"
     >
       {children}
     </div>
@@ -57,14 +44,10 @@ function Sidebar({ children }: { children: React.ReactNode }) {
 
 function Content({ children }: { children: React.ReactNode }) {
   return (
-    <div id="page-container">
+    <div id="page-container" className="flex-1">
       <div
         id="page-content"
-        style={{
-          padding: 20,
-          paddingBottom: 50,
-          minHeight: "100vh",
-        }}
+        className="p-5 pb-12 min-h-screen"
       >
         {children}
       </div>
@@ -74,12 +57,7 @@ function Content({ children }: { children: React.ReactNode }) {
 
 function Logo() {
   return (
-    <div
-      style={{
-        marginTop: 20,
-        marginBottom: 10,
-      }}
-    >
+    <div className="mt-5 mb-2.5">
       <a href="/">
         <img src={logoUrl} height={64} width={64} alt="logo" />
       </a>

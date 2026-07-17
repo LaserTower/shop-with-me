@@ -9,7 +9,9 @@ a {
   margin-left: -10px;
 }
 #sidebar a.is-active {
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 4px;
 }
 
 /* Reset */
