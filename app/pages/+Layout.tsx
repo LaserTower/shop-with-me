@@ -1,9 +1,22 @@
 import "./Layout.css";
 
+import { usePageContext } from "vike-react/usePageContext";
+
 import logoUrl from "../assets/logo.svg";
 import { Link } from "../components/Link";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const { urlPathname } = usePageContext();
+
+  // Index page: no sidebar menu, content only
+  if (urlPathname === "/") {
+    return (
+      <div style={{ maxWidth: 900, margin: "auto" }}>
+        <Content>{children}</Content>
+      </div>
+    );
+  }
+
   return (
     <div
       style={{
