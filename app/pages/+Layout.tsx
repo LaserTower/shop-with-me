@@ -17,6 +17,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     );
   }
 
+  // Article page: no sidebar, light wikiHow-style colors
+  if (urlPathname === "/zamery") {
+    return (
+      <div className="min-h-screen bg-white text-[#434343]">
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex bg-gray-950 text-white max-w-screen-xl mx-auto">
       <Sidebar>
