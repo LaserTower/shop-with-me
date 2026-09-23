@@ -16,6 +16,7 @@ services:
   nginx:
     image: nginx:alpine
     container_name: shop-with-me-nginx
+    restart: unless-stopped
     volumes:
       - ./app/dist/client:/usr/share/nginx/html
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
