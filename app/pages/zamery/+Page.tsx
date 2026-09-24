@@ -2,7 +2,25 @@ import { article } from "./article.js";
 
 export default function Page() {
   return (
-    <main className="max-w-2xl mx-auto px-4 py-10">
+    <main
+      className="max-w-2xl mx-auto px-4 py-10"
+      itemScope
+      itemType="https://schema.org/Article"
+    >
+      <meta itemProp="url" content="https://shop-with-me.ru/zamery/" />
+      <meta itemProp="mainEntityOfPage" content="https://shop-with-me.ru/zamery/" />
+      <meta itemProp="inLanguage" content="ru" />
+      <meta itemProp="image" content="https://shop-with-me.ru/zamery/og.png" />
+      <meta itemProp="datePublished" content="2026-09-24" />
+      <meta itemProp="dateModified" content="2026-09-24" />
+      <span itemProp="author" itemScope itemType="https://schema.org/Organization" hidden>
+        <meta itemProp="name" content="Shop With Me" />
+        <meta itemProp="url" content="https://shop-with-me.ru/" />
+      </span>
+      <span itemProp="publisher" itemScope itemType="https://schema.org/Organization" hidden>
+        <meta itemProp="name" content="Shop With Me" />
+        <meta itemProp="url" content="https://shop-with-me.ru/" />
+      </span>
       <div className="mb-8 p-4 border border-amber-400 bg-amber-50 text-amber-900 text-sm rounded">
         <strong>Черновик.</strong> Эта страница — временный пример оформления и
         подлежит полной переработке перед публикацией. Текст и изображения взяты
@@ -11,18 +29,26 @@ export default function Page() {
         принадлежат wikiHow, Inc. Любое публичное использование этих материалов
         без соответствующих прав не допускается.
       </div>
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 itemProp="headline" className="text-3xl font-bold mb-6 text-center">
         Как делать замеры тела
       </h1>
-      <p className="mb-10">{article.intro}</p>
+      <p itemProp="description" className="mb-10">
+        {article.intro}
+      </p>
 
       {article.methods.map((method) => (
-        <section key={method.title} className="mb-10">
+        <section
+          key={method.title}
+          className="mb-10"
+        >
           <h2 className="text-2xl font-bold mb-4">{method.title}</h2>
           <ol className="list-decimal list-outside ml-6 space-y-8">
             {method.steps.map((step) => (
-              <li key={step.title}>
-                <strong>{step.title}</strong> {step.text}
+              <li
+                key={step.title}
+              >
+                <strong>{step.title}</strong>{" "}
+                {step.text}
                 {step.subs && (
                   <ul className="list-disc list-outside ml-6 mt-2 space-y-1">
                     {step.subs.map((sub) => (
