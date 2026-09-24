@@ -10,7 +10,7 @@ export default function Page() {
       <meta itemProp="url" content="https://shop-with-me.ru/zamery/" />
       <meta itemProp="mainEntityOfPage" content="https://shop-with-me.ru/zamery/" />
       <meta itemProp="inLanguage" content="ru" />
-      <meta itemProp="image" content="https://shop-with-me.ru/zamery/og.png" />
+      <meta itemProp="image" content="https://shop-with-me.ru/zamery/step-1.jpg" />
       <meta itemProp="datePublished" content="2026-09-24" />
       <meta itemProp="dateModified" content="2026-09-24" />
       <span itemProp="author" itemScope itemType="https://schema.org/Organization" hidden>
