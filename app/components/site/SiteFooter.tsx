@@ -1,6 +1,6 @@
 import { Logo } from "./Logo.js";
 
-export function SiteFooter({ specialists = false }: { specialists?: boolean }) {
+export function SiteFooter({ specialists = false, showSpecialists = true }: { specialists?: boolean; showSpecialists?: boolean }) {
   return (
     <footer className="bg-[#102e27] text-white">
       <div className="site-container py-10 sm:py-12">
@@ -14,7 +14,7 @@ export function SiteFooter({ specialists = false }: { specialists?: boolean }) {
           {!specialists && (
             <nav className="flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-white/75" aria-label="Направления проекта">
               <a href="/nutrition" className="hover:text-[#dff36b]">Питание со специалистом</a>
-              <a href="/specialists" className="hover:text-[#dff36b]">Специалистам</a>
+              {showSpecialists && <a href="/specialists" className="hover:text-[#dff36b]">Специалистам</a>}
               <a href="/fridge" className="hover:text-[#dff36b]">Холодильник</a>
             </nav>
           )}

@@ -3,8 +3,8 @@ import { SeoHead } from "../../components/site/SeoHead.js";
 export function Head() {
   return (
     <SeoHead
-      title="Shop With Me — питание и покупки в Telegram"
-      description="Помощь специалиста с питанием или самостоятельный выбор рецептов: бот учитывает запасы и собирает список покупок."
+      title="Умный холодильник и список покупок — Shop With Me"
+      description="Выбирайте рецепты из продуктов дома, а бот сверит ингредиенты с запасами и составит список только недостающих покупок."
       path="/"
     />
   );

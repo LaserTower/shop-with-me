@@ -5,9 +5,8 @@ Guidance for AI coding agents working in this repository.
 ## Project overview
 
 **Shop With Me** is the Russian-language brochure site for a Telegram nutrition bot.
-The home page introduces three directions: nutrition with a specialist (`/nutrition`),
-a workspace for specialists (`/specialists`), and a virtual fridge with recipes and
-shopping lists (`/fridge`). It is a **statically prerendered (SSG) React site** built
+The site has client-facing pages and a separate specialist workspace. The home page
+structure is documented in `docs/home-page.md`. It is a **statically prerendered (SSG) React site** built
 with [Vike](https://vike.dev) and served by nginx as plain static files. There is **no
 backend/API server in this repo** — the nginx container serves only `app/dist/client`.
 
@@ -33,7 +32,7 @@ pages (todo, star-wars, test) still exist alongside the product pages.
 │   │   ├── +Layout.tsx       # Root layout (product pages have no demo sidebar)
 │   │   ├── +Head.tsx         # <head> tags (favicon)
 │   │   ├── Layout.css        # Global CSS; the single Tailwind entry point
-│   │   ├── index/            # Home page with links to the three product directions
+│   │   ├── index/            # Client-focused home page for the virtual fridge
 │   │   ├── nutrition/        # Nutrition-with-a-specialist landing page
 │   │   ├── specialists/      # Standalone specialist workspace landing page
 │   │   ├── fridge/           # Virtual fridge, recipes, and shopping-list landing page
@@ -101,6 +100,12 @@ subsequent local `npm run build` then fails with `EACCES: permission denied` whi
 - **Languages**: code and comments are in English; user-facing UI copy on the landing page
   is in Russian. Keep it that way.
 - No linter or formatter is configured — there is nothing to run beyond `tsc`.
+
+## Documentation
+
+- When writing or updating documentation, prioritize the intent behind the product and its
+  pages: who they are for, what problem they solve, and why the content and navigation are
+  organized that way. Implementation details should support that intent, not replace it.
 
 ## Testing
 
