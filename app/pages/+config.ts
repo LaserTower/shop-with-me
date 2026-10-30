@@ -6,8 +6,9 @@ import vikeReact from "vike-react/config";
 
 const config: Config = {
   // https://vike.dev/head-tags
-  title: "My Vike App",
-  description: "Demo showcasing Vike",
+  title: "Shop With Me — питание и покупки в Telegram",
+  description: "Помощь специалиста с питанием или самостоятельный выбор рецептов: бот учитывает запасы и собирает список покупок.",
+  lang: "ru",
 
   extends: [vikeReact],
   prerender: true,

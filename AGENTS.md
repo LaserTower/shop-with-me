@@ -4,14 +4,15 @@ Guidance for AI coding agents working in this repository.
 
 ## Project overview
 
-**Shop With Me** is the web frontend for a shared shopping-list service (Russian-language
-landing page: "Простой и удобный сервис для совместных покупок"). It is a **statically
-prerendered (SSG) React site** built with [Vike](https://vike.dev) and served by nginx as
-plain static files. There is **no backend/API server in this repo** — the nginx container
-serves only `app/dist/client`.
+**Shop With Me** is the Russian-language brochure site for a Telegram nutrition bot.
+The home page introduces three directions: nutrition with a specialist (`/nutrition`),
+a workspace for specialists (`/specialists`), and a virtual fridge with recipes and
+shopping lists (`/fridge`). It is a **statically prerendered (SSG) React site** built
+with [Vike](https://vike.dev) and served by nginx as plain static files. There is **no
+backend/API server in this repo** — the nginx container serves only `app/dist/client`.
 
 The app was scaffolded with `npm create vike@latest --- --react`, and several scaffold demo
-pages (todo, star-wars, test) still exist alongside the real landing page.
+pages (todo, star-wars, test) still exist alongside the product pages.
 
 ## Tech stack
 
@@ -29,15 +30,19 @@ pages (todo, star-wars, test) still exist alongside the real landing page.
 ├── app/                      # The entire frontend application (own package.json)
 │   ├── pages/                # Vike filesystem routing; "+files" are the Vike interface
 │   │   ├── +config.ts        # Global config: vike-react, title, prerender: true
-│   │   ├── +Layout.tsx       # Root layout (sidebar nav; landing page "/" gets no sidebar)
+│   │   ├── +Layout.tsx       # Root layout (product pages have no demo sidebar)
 │   │   ├── +Head.tsx         # <head> tags (favicon)
 │   │   ├── Layout.css        # Global CSS; the single Tailwind entry point
-│   │   ├── index/            # Landing page "/" (Russian copy); clientRouting disabled
+│   │   ├── index/            # Home page with links to the three product directions
+│   │   ├── nutrition/        # Nutrition-with-a-specialist landing page
+│   │   ├── specialists/      # Standalone specialist workspace landing page
+│   │   ├── fridge/           # Virtual fridge, recipes, and shopping-list landing page
 │   │   ├── todo/             # Scaffold demo: todo list (+Page, +data, TodoList)
 │   │   ├── star-wars/        # Scaffold demo: data fetching; index + @id/ param route
 │   │   ├── test/             # Tailwind sandbox page
 │   │   └── _error/+Page.tsx  # 404 / error page
-│   ├── components/Link.tsx   # Shared nav link with active-state highlighting
+│   ├── components/Link.tsx   # Demo nav link with active-state highlighting
+│   ├── components/site/      # Product-page header, footer, SEO, icons, and content blocks
 │   ├── assets/               # Static assets (logo.svg)
 │   ├── dist/                 # Build output; dist/client is what nginx serves
 │   ├── vite.config.ts        # Plugins: vike(), react(), tailwindcss()
@@ -124,11 +129,12 @@ prerender. If you add tests, you are introducing the first setup — keep it min
 
 ## Known quirks (pre-existing, verify before "fixing")
 
-- `app/pages/index/+config.ts` sets `clientHooks: false` — this makes the landing page
-  **HTML-only**: Vike skips the client runtime, hydration, and pageContext JSON scripts, so
-  the prerendered `index.html` contains no `<script>` tags at all. `clientRouting: false`
-  there is secondary (it only affects navigation mode, not whether JS is shipped). Don't
-  remove `clientHooks: false` unless the landing page gains client-side interactivity.
+- The four product pages (`index`, `nutrition`, `specialists`, `fridge`) set
+  `clientHooks: false` — this makes them **HTML-only**: Vike skips the client runtime,
+  hydration, and pageContext JSON scripts, so their prerendered HTML contains no `<script>`
+  tags. `clientRouting: false` is secondary (it only affects navigation mode, not whether
+  JS is shipped). Don't remove `clientHooks: false` unless a page gains client-side
+  interactivity.
 - `nginx/nginx.conf` has a typo in `server_name`: `shop-wiht-me.ru` (should be
   `shop-with-me.ru`).
 - `deploy.sh:Zone.Identifier` files (repo root and `.github/workflows/`) are Windows

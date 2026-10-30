@@ -8,13 +8,10 @@ import { Link } from "../components/Link";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { urlPathname } = usePageContext();
 
-  // Index page: no sidebar menu, content only
-  if (urlPathname === "/") {
-    return (
-      <div className="min-h-screen bg-gray-950 text-white">
-        {children}
-      </div>
-    );
+  const isSitePage = ["/", "/nutrition", "/specialists", "/fridge"].includes(urlPathname);
+
+  if (isSitePage) {
+    return <div className="min-h-screen bg-[#f7f5ee]">{children}</div>;
   }
 
   // Article page: no sidebar, light wikiHow-style colors
