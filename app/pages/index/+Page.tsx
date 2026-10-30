@@ -65,7 +65,7 @@ export default function Page() {
           <div className="site-container">
             <SectionHeading
               eyebrow="Практично каждый день"
-              title={<>Холодильник помнит.<br className="hidden sm:block" /> Вам не придётся</>}
+              title={<>Бот позаботится<br className="hidden sm:block" /> о вашем холодильнике</>}
               description="Управляйте продуктами в свободном диалоге или откройте список запасов, когда нужна точность."
             />
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
