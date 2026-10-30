@@ -61,6 +61,24 @@ export default function Page() {
           </div>
         </section>
 
+        <section id="features" className="py-20 sm:py-28">
+          <div className="site-container">
+            <SectionHeading
+              eyebrow="Практично каждый день"
+              title={<>Холодильник помнит.<br className="hidden sm:block" /> Вам не придётся</>}
+              description="Управляйте продуктами в свободном диалоге или откройте список запасов, когда нужна точность."
+            />
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <FeatureCard icon="sparkles" title="Рецепты из своего" number="01">Спросите «что приготовить?» — бот предложит блюда, исходя из продуктов, которые уже записаны в вашем холодильнике.</FeatureCard>
+              <FeatureCard icon="basket" title="Покупки без дублей" number="02">Попросите список для борща или другого блюда. Бот сравнит рецепт с запасами и не добавит то, что уже есть дома.</FeatureCard>
+              <FeatureCard icon="mic" title="Пополнение голосом" number="03">После магазина не нужно заполнять форму: перечислите покупки текстом или голосом в одном сообщении.</FeatureCard>
+              <FeatureCard icon="fridge" title="Запасы под рукой" number="04">Команда /fridge_list покажет актуальное содержимое. Отдельный продукт можно отредактировать или удалить кнопкой.</FeatureCard>
+              <FeatureCard icon="clipboard" title="Частичный расход" number="05">Осталось полпачки творога или 50 грамм вместо 200? Выберите «Редактировать» и опишите новое состояние своими словами.</FeatureCard>
+              <FeatureCard icon="message" title="Обычные фразы" number="06">«Молоко закончилось» или «выбросил картошку» — бот поймёт, что продукт нужно убрать из запасов, без поиска по меню.</FeatureCard>
+            </div>
+          </div>
+        </section>
+
         <section id="how-it-works" className="scroll-mt-20 border-y border-[#173f35]/8 bg-white/45 py-20 sm:py-28">
           <div className="site-container">
             <SectionHeading
@@ -82,24 +100,6 @@ export default function Page() {
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
-
-        <section id="features" className="py-20 sm:py-28">
-          <div className="site-container">
-            <SectionHeading
-              eyebrow="Практично каждый день"
-              title={<>Холодильник помнит.<br className="hidden sm:block" /> Вам не придётся</>}
-              description="Управляйте продуктами в свободном диалоге или откройте список запасов, когда нужна точность."
-            />
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              <FeatureCard icon="sparkles" title="Рецепты из своего" number="01">Спросите «что приготовить?» — бот предложит блюда, исходя из продуктов, которые уже записаны в вашем холодильнике.</FeatureCard>
-              <FeatureCard icon="basket" title="Покупки без дублей" number="02">Попросите список для борща или другого блюда. Бот сравнит рецепт с запасами и не добавит то, что уже есть дома.</FeatureCard>
-              <FeatureCard icon="mic" title="Пополнение голосом" number="03">После магазина не нужно заполнять форму: перечислите покупки текстом или голосом в одном сообщении.</FeatureCard>
-              <FeatureCard icon="fridge" title="Запасы под рукой" number="04">Команда /fridge_list покажет актуальное содержимое. Отдельный продукт можно отредактировать или удалить кнопкой.</FeatureCard>
-              <FeatureCard icon="clipboard" title="Частичный расход" number="05">Осталось полпачки творога или 50 грамм вместо 200? Выберите «Редактировать» и опишите новое состояние своими словами.</FeatureCard>
-              <FeatureCard icon="message" title="Обычные фразы" number="06">«Молоко закончилось» или «выбросил картошку» — бот поймёт, что продукт нужно убрать из запасов, без поиска по меню.</FeatureCard>
-            </div>
           </div>
         </section>
 
