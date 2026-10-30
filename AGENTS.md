@@ -33,6 +33,7 @@ pages (todo, star-wars, test) still exist alongside the product pages.
 │   │   ├── +Head.tsx         # <head> tags (favicon)
 │   │   ├── Layout.css        # Global CSS; the single Tailwind entry point
 │   │   ├── index/            # Client-focused home page for the virtual fridge
+│   │   ├── overview/         # Unlinked original three-direction home page
 │   │   ├── nutrition/        # Nutrition-with-a-specialist landing page
 │   │   ├── specialists/      # Standalone specialist workspace landing page
 │   │   ├── fridge/           # Virtual fridge, recipes, and shopping-list landing page

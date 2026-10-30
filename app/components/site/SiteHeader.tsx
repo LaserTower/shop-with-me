@@ -2,13 +2,18 @@ import { BOT_URL } from "./Content.js";
 import { Icon } from "./Icon.js";
 import { Logo } from "./Logo.js";
 
-type HeaderVariant = "main" | "nutrition" | "specialists" | "fridge";
+type HeaderVariant = "main" | "overview" | "nutrition" | "specialists" | "fridge";
 
 const navigation: Record<HeaderVariant, { href: string; label: string }[]> = {
   main: [
     { href: "#features", label: "Возможности" },
     { href: "#how-it-works", label: "Как это работает" },
     { href: "/nutrition", label: "Со специалистом" },
+  ],
+  overview: [
+    { href: "/nutrition", label: "Со специалистом" },
+    { href: "/specialists", label: "Специалистам" },
+    { href: "/fridge", label: "Холодильник" },
   ],
   nutrition: [
     { href: "#features", label: "Возможности" },
@@ -26,7 +31,7 @@ const navigation: Record<HeaderVariant, { href: string; label: string }[]> = {
 
 export function SiteHeader({ variant = "main" }: { variant?: HeaderVariant }) {
   const botLink = variant === "main" || variant === "nutrition" || variant === "fridge";
-  const actionHref = botLink ? BOT_URL : "#start";
+  const actionHref = botLink ? BOT_URL : variant === "overview" ? "#directions" : "#start";
 
   return (
     <header className="relative z-20 border-b border-[#173f35]/10">
@@ -40,7 +45,7 @@ export function SiteHeader({ variant = "main" }: { variant?: HeaderVariant }) {
           ))}
         </nav>
         <a href={actionHref} className="site-header-action" target={botLink ? "_blank" : undefined} rel={botLink ? "noopener noreferrer" : undefined}>
-          <span>{variant === "specialists" ? "Подключиться" : "Открыть бота"}</span>
+          <span>{variant === "overview" ? "Выбрать сценарий" : variant === "specialists" ? "Подключиться" : "Открыть бота"}</span>
           <Icon name="arrow" className="size-4" />
         </a>
       </div>

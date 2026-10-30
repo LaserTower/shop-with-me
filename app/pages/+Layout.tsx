@@ -8,7 +8,7 @@ import { Link } from "../components/Link";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { urlPathname } = usePageContext();
 
-  const isSitePage = ["/", "/nutrition", "/specialists", "/fridge"].includes(urlPathname);
+  const isSitePage = ["/", "/overview", "/nutrition", "/specialists", "/fridge"].includes(urlPathname);
 
   if (isSitePage) {
     return <div className="min-h-screen bg-[#f7f5ee]">{children}</div>;
