@@ -103,29 +103,33 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="example" className="scroll-mt-20 pb-20 sm:pb-28">
+        <section id="about" className="scroll-mt-20 pb-20 sm:pb-28">
           <div className="site-container">
-            <div className="grid overflow-hidden rounded-[32px] bg-[#173f35] text-white lg:grid-cols-[.9fr_1.1fr]">
-              <div className="p-7 sm:p-12 lg:p-14">
-                <Eyebrow light>Живой пример</Eyebrow>
-                <h2 className="text-3xl leading-[1.12] font-extrabold tracking-[-0.04em] sm:text-4xl">«Что мне купить, чтобы приготовить борщ?»</h2>
-                <p className="mt-5 text-base leading-7 text-white/60">Не полный список по рецепту, а только недостающее — с учётом того, что вы уже сообщили боту.</p>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  <code className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-[#dff36b]">/shopping_list</code>
-                  <code className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-[#dff36b]">/fridge_list</code>
-                </div>
-              </div>
-              <div className="bg-[#204b3f] p-7 sm:p-12">
-                <div className="space-y-4">
-                  <div className="ml-auto max-w-[85%] rounded-[20px_20px_5px_20px] bg-[#dff36b] px-5 py-4 text-sm leading-6 font-semibold text-[#173f35]">Что купить для борща? Капуста, свёкла и картошка у меня есть.</div>
-                  <div className="max-w-[92%] rounded-[20px_20px_20px_5px] bg-white px-5 py-5 text-[#173f35]">
-                    <p className="text-sm font-extrabold">Докупите для борща:</p>
-                    <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-[#5a6f66]">
-                      <li>· Говядина</li><li>· Морковь</li><li>· Лук</li><li>· Томатная паста</li><li>· Сметана</li><li>· Специи</li>
-                    </ul>
+            <div className="overflow-hidden rounded-[32px] bg-[#173f35] px-6 py-12 text-white sm:px-10 sm:py-16 lg:px-16">
+              <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+                <div>
+                  <SectionHeading
+                    light
+                    eyebrow="Всё начинается с сообщения"
+                    title={<>Не нужно осваивать<br />ещё одно приложение</>}
+                    description="Shop With Me живёт в Telegram. Пишите так, как сказали бы человеку, — бот разбирает обычные фразы и голосовые сообщения."
+                  />
+                  <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+                    <Icon name="mic" className="size-5 text-[#dff36b]" /> «На завтрак был омлет из двух яиц»
                   </div>
-                  <p className="text-center text-[10px] text-white/35">Пример диалога. Состав списка зависит от ваших запасов.</p>
                 </div>
+                <ol className="space-y-7">
+                  {[
+                    ["01", "Расскажите о своей задаче", "Выберите помощь специалиста или самостоятельный сценарий с рецептами и покупками."],
+                    ["02", "Общайтесь в привычном формате", "Текст, голос и фотографии — без сложных форм и отдельных таблиц."],
+                    ["03", "Получайте полезный результат", "Запись в дневнике, структурированные данные для специалиста или список недостающих продуктов."],
+                  ].map(([number, title, text]) => (
+                    <li key={number} className="grid grid-cols-[42px_1fr] gap-4 border-b border-white/10 pb-7 last:border-0 last:pb-0">
+                      <span className="font-mono text-sm font-bold text-[#dff36b]">{number}</span>
+                      <div><h3 className="text-lg font-extrabold">{title}</h3><p className="mt-2 text-sm leading-6 text-white/55">{text}</p></div>
+                    </li>
+                  ))}
+                </ol>
               </div>
             </div>
           </div>
